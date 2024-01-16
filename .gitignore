@@ -3,4 +3,7 @@ ChaosBlaster/Binaries
 ChaosBlaster/DerivedDataCache
 ChaosBlaster/Intermediate
 ChaosBlaster/Saved
+ChaosBlaster/Build
 ChaosBlaster/ChaosBlaster.sln
+ChaosBlaster/Plugins/MultiplayerSession/Binaries
+ChaosBlaster/Plugins/MultiplayerSession/Intermediate
