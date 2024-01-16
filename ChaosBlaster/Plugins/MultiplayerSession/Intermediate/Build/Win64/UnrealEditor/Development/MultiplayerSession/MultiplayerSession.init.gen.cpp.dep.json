@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "e:\\my_game\\unreal\\chaosblaster_git\\chaosblaster\\plugins\\multiplayersession\\intermediate\\build\\win64\\unrealeditor\\inc\\multiplayersession\\uht\\multiplayersession.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\my_game\\unreal\\chaosblaster_git\\chaosblaster\\intermediate\\build\\win64\\chaosblastereditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\my_game\\unreal\\chaosblaster_git\\chaosblaster\\plugins\\multiplayersession\\intermediate\\build\\win64\\unrealeditor\\development\\multiplayersession\\definitions.multiplayersession.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
