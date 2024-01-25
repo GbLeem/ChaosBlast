@@ -30,7 +30,7 @@ AWeapon::AWeapon()
 void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
-	if (HasAuthority())
+	if (HasAuthority()) //server
 	{
 		AreaSphere->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		AreaSphere->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
@@ -80,5 +80,3 @@ void AWeapon::ShowPickupWidget(bool bShowWidget)
 		Pickupwidget->SetVisibility(bShowWidget);
 	}
 }
-
-

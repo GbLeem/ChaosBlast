@@ -60,8 +60,7 @@ void ABlasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("MoveForward", this, &ThisClass::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ThisClass::MoveRight);
 	PlayerInputComponent->BindAxis("Turn", this, &ThisClass::Turn);
-	PlayerInputComponent->BindAxis("LookUp", this, &ThisClass::LookUp);
-	
+	PlayerInputComponent->BindAxis("LookUp", this, &ThisClass::LookUp);	
 }
 
 
@@ -96,7 +95,7 @@ void ABlasterCharacter::LookUp(float Value)
 }
 
 //only called on the server
-void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
+void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon) //change overlapping weapon !!
 {
 	if (OverlappingWeapon)
 	{
@@ -105,7 +104,7 @@ void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
 
 	OverlappingWeapon = Weapon;
 
-	if (IsLocallyControlled())
+	if (IsLocallyControlled()) //when player moving their pawn directly
 	{
 		if (OverlappingWeapon)
 		{
