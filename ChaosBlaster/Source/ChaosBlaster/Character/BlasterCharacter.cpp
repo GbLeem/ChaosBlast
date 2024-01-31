@@ -29,6 +29,8 @@ ABlasterCharacter::ABlasterCharacter()
 
 	Combat = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
 	Combat->SetIsReplicated(true);
+
+	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 }
 
 void ABlasterCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -62,6 +64,7 @@ void ABlasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("LookUp", this, &ThisClass::LookUp);	
 
 	PlayerInputComponent->BindAction("Equip", IE_Pressed, this, &ThisClass::EquipButtonPressed); //input action binding
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ThisClass::CrouchButtonPressed); //input action binding
 
 }
 
@@ -120,6 +123,18 @@ void ABlasterCharacter::EquipButtonPressed()
 	}
 }
 
+void ABlasterCharacter::CrouchButtonPressed()
+{
+	if (bIsCrouched)
+	{
+		UnCrouch();
+	}
+	else
+	{
+		Crouch();
+	}
+}
+
 void ABlasterCharacter::ServerEquipButtonPressed_Implementation()
 {
 	if (Combat)
@@ -158,4 +173,10 @@ void ABlasterCharacter::OnRep_OverlappingWeapon(AWeapon* LastWeapon)
 	{
 		LastWeapon->ShowPickupWidget(false);
 	}
+}
+
+
+bool ABlasterCharacter::IsWeaponEquipped()
+{
+	return (Combat && Combat->EquippedWeapon);
 }
