@@ -144,7 +144,7 @@ void ABlasterCharacter::AimButtonPressed()
 {
 	if (Combat)
 	{
-		Combat->bAiming = true;
+		Combat->SetAiming(true);
 	}
 }
 
@@ -152,7 +152,7 @@ void ABlasterCharacter::AimButtonReleased()
 {
 	if (Combat)
 	{
-		Combat->bAiming = false;
+		Combat->SetAiming(false);
 	}
 }
 

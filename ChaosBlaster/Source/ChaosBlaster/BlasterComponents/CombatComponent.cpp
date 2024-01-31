@@ -19,6 +19,20 @@ void UCombatComponent::BeginPlay()
 	
 }
 
+void UCombatComponent::SetAiming(bool bIsAiming)
+{
+	bAiming = bIsAiming;
+	//if (!Character->HasAuthority()) // not a server -> why remove this if statement ?
+	//{
+	ServerSetAiming(bIsAiming); //our pc (client?)
+	//}
+}
+
+void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming) //client
+{
+	bAiming = bIsAiming;
+}
+
 void UCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
