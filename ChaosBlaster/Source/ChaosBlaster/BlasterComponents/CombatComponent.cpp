@@ -23,9 +23,10 @@ void UCombatComponent::SetAiming(bool bIsAiming)
 {
 	bAiming = bIsAiming;
 	//if (!Character->HasAuthority()) // not a server -> why remove this if statement ?
-	//{
-	ServerSetAiming(bIsAiming); //our pc (client?)
-	//}
+	//-> when client owned actor call RPC, it runs on server
+
+	ServerSetAiming(bIsAiming); //call RPC
+	
 }
 
 void UCombatComponent::ServerSetAiming_Implementation(bool bIsAiming) //client
